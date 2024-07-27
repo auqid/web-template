@@ -274,7 +274,21 @@ export const listingTypes = [
       location: true,
       payoutDetails: true,
     },
+    
   },
+  {
+    listingType: 'inquiry',
+    label: 'inquiry',
+    transactionType: {
+      process: 'default-inquiry',
+      alias: 'default-inquiry/release-1',
+      unitType: 'inquiry',
+    },
+    defaultListingFields: {
+      price: false,
+      location: true,
+    },
+  }
   // // Here are some examples for other listingTypes
   // // TODO: SearchPage does not work well if both booking and product selling are used at the same time
   // {
