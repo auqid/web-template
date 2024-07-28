@@ -15,7 +15,7 @@
 export const transitions = {
   // A customer can initiate a transaction with an inquiry, and
   // then transition that with a request.
-  INQUIRE_WITHOUT_PAYMENT: 'transition/inquire-without-payment',
+  INQUIRE_WITHOUT_PAYMENT: 'transition/inquire',
 };
 
 /**

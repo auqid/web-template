@@ -207,7 +207,7 @@ export const CheckoutPageWithInquiryProcess = props => {
                           values={{ authorDisplayName }}
                         />
                       </Heading>
-
+                      
                       <FieldTextInput
                         className={css.fieldInquiryMessage}
                         type="textarea"
