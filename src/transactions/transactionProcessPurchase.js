@@ -22,6 +22,7 @@ export const transitions = {
   // A customer can also initiate a transaction with an inquiry, and
   // then transition that with a request.
   INQUIRE: 'transition/inquire',
+  SET_PRICE: 'transition/set-price',
   REQUEST_PAYMENT_AFTER_INQUIRY: 'transition/request-payment-after-inquiry',
 
   // Stripe SDK might need to ask 3D security from customer, in a separate front-end step.
@@ -95,6 +96,7 @@ export const transitions = {
 export const states = {
   INITIAL: 'initial',
   INQUIRY: 'inquiry',
+  PRICE_SET: 'price-set',
   PENDING_PAYMENT: 'pending-payment',
   PAYMENT_EXPIRED: 'payment-expired',
   PURCHASED: 'purchased',
@@ -136,10 +138,14 @@ export const graph = {
     },
     [states.INQUIRY]: {
       on: {
+        [transitions.SET_PRICE]: states.PRICE_SET,
+      },
+    },
+    [states.PRICE_SET]: {
+      on: {
         [transitions.REQUEST_PAYMENT_AFTER_INQUIRY]: states.PENDING_PAYMENT,
       },
     },
-
     [states.PENDING_PAYMENT]: {
       on: {
         [transitions.EXPIRE_PAYMENT]: states.PAYMENT_EXPIRED,
