@@ -218,6 +218,8 @@ export const graph = {
 // The first transition and most of the expiration transitions made by system are not relevant
 export const isRelevantPastTransition = transition => {
   return [
+    transitions.INQUIRE,
+    transitions.SET_PRICE,
     transitions.CONFIRM_PAYMENT,
     transitions.AUTO_CANCEL,
     transitions.CANCEL,

@@ -15,6 +15,9 @@ export const getStateDataForPurchaseProcess = (txInfo, processInfo) => {
     .cond([states.INQUIRY, _], () => {
       return { processName, processState, actionNeeded: true };
     })
+    // .cond([states.PRICE_SET, PROVIDER], () => {
+    //   return { processName, processState, actionNeeded: true };
+    // })
     .cond([states.PENDING_PAYMENT, CUSTOMER], () => {
       return { processName, processState, actionNeeded: true };
     })
